@@ -39,23 +39,23 @@ C interpreter
 ## How to test locally
 
 ```bash
-python validate.py "<your-tool-command>"
+python3 validate.py "<your-tool-command>"
 ```
 
 Examples:
 
 ```bash
 # Python interpreter
-python validate.py "python3 picoc.py"
+python3 validate.py "python3 picoc.py"
 
 # Node.js interpreter
-python validate.py "node picoc.js"
+python3 validate.py "node picoc.js"
 
 # Compiled binary
-python validate.py "./picoc_cpp"
+python3 validate.py "./picoc_cpp"
 
 # With arguments
-python validate.py "java -jar picoc.jar"
+python3 validate.py "java -jar picoc.jar"
 ```
 
 The script runs your tool against every test case, hashes the output, and compares against the expected hash. Pass/fail per test is printed, with a summary at the end.

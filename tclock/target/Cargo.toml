@@ -1,0 +1,9 @@
+[package]
+name = "tclock"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+crossterm = "0.27"
+chrono = "0.4"
+ctrlc = "3.4"
