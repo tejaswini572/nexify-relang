@@ -1,0 +1,115 @@
+01_basic_inline_0088
+IN : '**bold ~~strike and *italic*~~ bold**'
+EXP: '<p>*<em>bold <del>strike and <em>italic</em></del> bold</em>*</p>\n\n'
+ACT: '<p><em>bold <del>strike and <em>italic</em></del> bold</em>**</p>\n\n'
+---
+11_edge_cases_0871
+IN : '> - ```\n> > code\n> > ```\n> - end'
+EXP: '<blockquote>\n<ul>\n<li><pre><code>\n</code></pre>\n</li>\n</ul>\n<blockquote>\n<p>code\n```</p>\n</blockquote>\n<ul>\n<li>end</li>\n</ul>\n</blockquote>\n\n'
+ACT: '<blockquote>\n<ul>\n<li><pre><code>\n</code></pre>\n</li>\n</ul>\n<blockquote>\n<p>code</p>\n<pre><code>\n</code></pre>\n</blockquote>\n<ul>\n<li>end</li>\n</ul>\n</blockquote>\n\n'
+---
+11_edge_cases_0968
+IN : '_ not em because spaces _'
+EXP: '<p>_ not em because spaces _</p>\n\n'
+ACT: '<p>_ not em because spaces _</p>\n\n'
+---
+11_edge_cases_0974
+IN : 'pre ** mid ** post'
+EXP: '<p>pre ** mid ** post</p>\n\n'
+ACT: '<p>pre ** mid ** post</p>\n\n'
+---
+12_combinatorial_1020
+IN : '**  spaced  **'
+EXP: '<p>**  spaced  **</p>\n\n'
+ACT: '<p>**  spaced  **</p>\n\n'
+---
+12_combinatorial_1028
+IN : '__  spaced  __'
+EXP: '<p>__  spaced  __</p>\n\n'
+ACT: '<p>__  spaced  __</p>\n\n'
+---
+12_combinatorial_1103
+IN : '***bold*** ***italic***'
+EXP: '<p><em><strong>bold</strong></em> <em><strong>italic</strong></em></p>\n\n'
+ACT: '<p><em><strong>bold</strong></em> <em><strong>italic</strong></em></p>\n\n'
+---
+12_combinatorial_1104
+IN : '___bold___ ___italic___'
+EXP: '<p><em><strong>bold</strong></em> <em><strong>italic</strong></em></p>\n\n'
+ACT: '<p><em><strong>bold</strong></em> <em><strong>italic</strong></em></p>\n\n'
+---
+12_combinatorial_1727
+IN : '*italic* and *italic* in paragraph.'
+EXP: '<p><em>italic</em> and <em>italic</em> in paragraph.</p>\n\n'
+ACT: '<p><em>italic</em> and <em>italic</em> in paragraph.</p>\n\n'
+---
+12_combinatorial_2190
+IN : '*a* **b**'
+EXP: '<p><em>a</em> <strong>b</strong></p>\n\n'
+ACT: '<p><em>a</em> <strong>b</strong></p>\n\n'
+---
+12_combinatorial_2579
+IN : '~~~\n\n\n\n\n~~~'
+EXP: '<pre><code>\n\n\n</code></pre>\n\n'
+ACT: '<pre><code>\n\n\n</code></pre>\n\n'
+---
+12_combinatorial_2830
+IN : '> > > > > > ```\nfence\n```'
+EXP: '<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<pre><code>\n</code></pre>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n<p>fence\n```</p>\n\n'
+ACT: '<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<pre><code>\n</code></pre>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n<p>fence</p>\n<pre><code>\n</code></pre>\n\n'
+---
+12_combinatorial_2839
+IN : '> > > > > > > ```\nfence\n```'
+EXP: '<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<pre><code>\n</code></pre>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n<p>fence\n```</p>\n\n'
+ACT: '<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<blockquote>\n<pre><code>\n</code></pre>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n</blockquote>\n<p>fence</p>\n<pre><code>\n</code></pre>\n\n'
+---
+12_combinatorial_3179
+IN : '[link](https://example.com/[)'
+EXP: '<p><a href="https://example.com/%5B">link</a></p>\n\n'
+ACT: '<p><a href="https://example.com/%5B">link</a></p>\n\n'
+---
+13_combinatorial2_3390
+IN : '*x* *x*'
+EXP: '<p><em>x</em> <em>x</em></p>\n\n'
+ACT: '<p><em>x</em> <em>x</em></p>\n\n'
+---
+13_combinatorial2_3393
+IN : '*a b* *a b*'
+EXP: '<p><em>a b</em> <em>a b</em></p>\n\n'
+ACT: '<p><em>a b</em> <em>a b</em></p>\n\n'
+---
+13_combinatorial2_3418
+IN : '~~x~~ ~~x~~'
+EXP: '<p><del>x</del> <del>x</del></p>\n\n'
+ACT: '<p><del>x</del> <del>x</del></p>\n\n'
+---
+13_combinatorial2_3420
+IN : '~~123~~ ~~123~~'
+EXP: '<p><del>123</del> <del>123</del></p>\n\n'
+ACT: '<p><del>123</del> <del>123</del></p>\n\n'
+---
+13_combinatorial2_3421
+IN : '~~a b~~ ~~a b~~'
+EXP: '<p><del>a b</del> <del>a b</del></p>\n\n'
+ACT: '<p><del>a b</del> <del>a b</del></p>\n\n'
+---
+13_combinatorial2_3499
+IN : '_ab_ __ab__'
+EXP: '<p><em>ab</em> <strong>ab</strong></p>\n\n'
+ACT: '<p><em>ab</em> <strong>ab</strong></p>\n\n'
+---
+13_combinatorial2_3505
+IN : '_a b_ _a b_'
+EXP: '<p><em>a b</em> <em>a b</em></p>\n\n'
+ACT: '<p><em>a b</em> <em>a b</em></p>\n\n'
+---
+13_combinatorial2_3504
+IN : '_123_ _123_'
+EXP: '<p><em>123</em> <em>123</em></p>\n\n'
+ACT: '<p><em>123</em> <em>123</em></p>\n\n'
+---
+13_combinatorial2_3864
+IN : '## *i* and **b** in heading'
+EXP: '<h2><em>i</em> and <strong>b</strong> in heading</h2>\n\n'
+ACT: '<h2><em>i</em> and <strong>b</strong> in heading</h2>\n\n'
+---
